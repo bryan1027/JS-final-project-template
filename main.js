@@ -8,4 +8,4 @@ function draw(){
  ctx.drawImage(BIS,0,0) 
 }
 
-draw();
+setTimeout(draw,1000);
