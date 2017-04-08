@@ -1,11 +1,20 @@
 //Background Image Setting
-var BIS = document.createElement("img");
-BIS.src="images/map.png"
+var bgImg = document.createElement("img");
+var enemyImg = document.createElement("img");
+bgImg.src="images/map.png"
+enemyImg.src="images/rukia.gif"
 var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
 
-function draw(){
- ctx.drawImage(BIS,0,0) 
+//Enemy Setting
+var enemy ={
+ x:96,
+ y:448
 }
 
-setTimeout(draw,1000);
+function draw(){
+ ctx.drawImage(bgImg,0,0) 
+ ctx.drawImage(enemyImg,enemy.x,enemy.y) 
+}
+
+setInterval(draw,16);
