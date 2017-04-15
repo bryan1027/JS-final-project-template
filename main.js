@@ -41,7 +41,7 @@ function draw(){
  ctx.drawImage(bgImg,0,0) 
  ctx.drawImage(enemyImg,enemy.x,enemy.y) 
  ctx.drawImage(towerBtn,560,432,48,48)
- if(isBuilding=true){
+ if(isBuilding==true){
     ctx.drawImage(towerImg,cursor.x,cursor.y)
 }
 }
