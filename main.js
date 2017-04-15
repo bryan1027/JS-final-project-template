@@ -17,7 +17,7 @@ var enemy ={
 function draw(){
  ctx.drawImage(bgImg,0,0) 
  ctx.drawImage(enemyImg,enemy.x,enemy.y) 
- ctx.drawImage(towerBtn,560,432,30,40)
+ ctx.drawImage(towerBtn,560,432,5,10)
 }
 
 setInterval(draw,16);
