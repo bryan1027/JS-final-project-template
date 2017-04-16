@@ -4,7 +4,7 @@ var enemyImg = document.createElement("img");
 var towerBtn = document.createElement("img");
 var towerImg = document.createElement("img");
 
-bgImg.src="images/map.png"
+bgImg.src="images/map3.png"
 enemyImg.src="images/rukia.gif"
 towerBtn.src="images/tower-btn.png"
 towerImg.src="images/tower.png"
