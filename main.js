@@ -29,7 +29,7 @@ $("#game-canvas").on("mousemove",function(event){
  cursor.y=event.offsetY
 })
 $("#game-canvas").on("click",function(event){
- if(isCollided(cursor.x,cursor.y,560,432,40,40)){
+ if(isCollided(cursor.x,cursor.y,560,432,48,48)){
     isBuilding=true
     }
     else{
