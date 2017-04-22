@@ -55,16 +55,17 @@ $("#game-canvas").on("click",function(event){
 })
 
 function draw(){
- ctx.drawImage(bgImg,0,0) 
- ctx.drawImage(enemyImg,enemy.x,enemy.y) 
- ctx.drawImage(towerBtn,345,432,48,48)
+ enemy.move();
+ ctx.drawImage(bgImg,0,0) ;
+ ctx.drawImage(enemyImg,enemy.x,enemy.y) ;
+ ctx.drawImage(towerBtn,345,432,48,48);
  if(isBuilding==true){
     ctx.drawImage(towerImg,cursor.x,cursor.y)
 }
  ctx.drawImage(towerImg,tower.x,tower.y)
 }
 
-setInterval(draw,16);
+setInterval(draw,1000/FPS);
 
 function isCollided(pointX, pointY, targetX, targetY, targetWidth, targetHeight) {
     if(     pointX >= targetX
