@@ -12,11 +12,19 @@ towerImg.src="images/tower.png"
 var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
 var isBuilding = false ;
+var FPS = 60;
 
 //Enemy Setting
 var enemy = {
  x:96,
- y:448
+ y:448,
+ speedX:0,
+ speedY:-64,
+ move: function(){
+ this.x=this.x+this.speedX/FPS;
+ this.y=this.y+this.speedY/FPS;
+ }
+ 
 };
 
 //Cursor Setting
