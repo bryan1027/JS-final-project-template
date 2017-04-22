@@ -14,15 +14,20 @@ var ctx = canvas.getContext("2d");
 var isBuilding = false ;
 
 //Enemy Setting
-var enemy ={
+var enemy = {
  x:96,
  y:448
-}
+};
 
+//Cursor Setting
 var cursor = {
  x:0,
  y:0
-}
+};
+
+var tower = {
+ 
+};
 
 $("#game-canvas").on("mousemove",function(event){
  cursor.x=event.offsetX
@@ -30,10 +35,14 @@ $("#game-canvas").on("mousemove",function(event){
 })
 $("#game-canvas").on("click",function(event){
  if(isCollided(cursor.x,cursor.y,560,432,48,48)){
-    isBuilding=true
+    isBuilding=true;
+    }
+    else if(isBuilding&&!isCollided(tower.x,tower.y,560,432,48,48)){
+     tower.x = cursor.x;
+     tower.y = cursor.y;
     }
     else{
-    isBuilding=false
+    isBuilding=false;
     }
 })
 
@@ -44,6 +53,7 @@ function draw(){
  if(isBuilding==true){
     ctx.drawImage(towerImg,cursor.x,cursor.y)
 }
+ ctx.drawImage(towerImg,tower.x,tower.y)
 }
 
 setInterval(draw,16);
