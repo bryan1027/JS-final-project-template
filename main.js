@@ -23,9 +23,13 @@ var enemy = {
  move: function(){
  this.x=this.x+this.speedX/FPS;
  this.y=this.y+this.speedY/FPS;
- }
- 
+ } 
 };
+//var enemyPath=[
+ {x:,y:},
+ {x:,y:},
+ 
+ ]
 
 //Cursor Setting
 var cursor = {
@@ -55,7 +59,7 @@ $("#game-canvas").on("click",function(event){
 })
 
 function draw(){
- enemy.move();
+ //enemy.move();
  ctx.drawImage(bgImg,0,0) ;
  ctx.drawImage(enemyImg,enemy.x,enemy.y) ;
  ctx.drawImage(towerBtn,345,432,48,48);
