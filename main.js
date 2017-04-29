@@ -25,6 +25,20 @@ var enemy = {
   if(isCollided(enemyPath[this.pathDes].x,[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
    this.x = enemyPath[this.pathDes].x;
    this.y = enemyPath[this.pathDes].y;
+   this.pathDes = this.pathDes + 1;
+   
+   if(enemyPath[this.pathDes].x > this.x){
+      
+      }
+   if(enemyPath[this.pathDes].x < this.x){
+    
+      }
+   if(enemyPath[this.pathDes].y > this.y){
+      
+      }
+   if(enemyPath[this.pathDes].y < this.y){
+    
+      }
   }
   else{
      this.x=this.x+this.speedX/FPS;
