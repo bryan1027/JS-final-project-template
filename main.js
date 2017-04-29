@@ -20,9 +20,14 @@ var enemy = {
  y:448,
  speedX:0,
  speedY:-64,
+ pathDes:0,
  move: function(){
- this.x=this.x+this.speedX/FPS;
- this.y=this.y+this.speedY/FPS;
+  if(isCollied(enemyPath[this.pathDes].x,[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
+  }
+  else{
+     this.x=this.x+this.speedX/FPS;
+     this.y=this.y+this.speedY/FPS;
+  }
  } 
 };
 var enemyPath=[
@@ -67,7 +72,7 @@ $("#game-canvas").on("click",function(event){
 })
 
 function draw(){
- //enemy.move();
+ enemy.move();
  ctx.drawImage(bgImg,0,0) ;
  ctx.drawImage(enemyImg,enemy.x,enemy.y) ;
  ctx.drawImage(towerBtn,345,432,48,48);
