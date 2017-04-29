@@ -25,9 +25,7 @@ var enemy = {
  this.y=this.y+this.speedY/FPS;
  } 
 };
-//var enemyPath=[
- {x:,y:},
- {x:,y:},
+var enemyPath=[
  
  ]
 
