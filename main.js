@@ -15,6 +15,47 @@ var isBuilding = false ;
 var FPS = 60;
 
 //Enemy Setting
+
+function Enemy(){
+ this.x = 96;
+ this.y = 448;
+ this.speedX = 0;
+ this.speedY = -64;
+ this.pathDes=0;
+ this.move=function(){
+  if(isCollided(enemyPath[this.pathDes].x,enemyPath[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
+
+   this.x = enemyPath[this.pathDes].x;
+   this.y = enemyPath[this.pathDes].y;
+   this.pathDes = this.pathDes + 1;
+   console.log(enemyPath[this.pathDes].x);
+   console.log(enemyPath[this.pathDes].y);
+   
+   if(enemyPath[this.pathDes].x > this.x){
+      this.speedX=64;
+      this.speedY=0 ;
+      }
+   if(enemyPath[this.pathDes].x < this.x){
+      this.speedX=-64 ;
+      this.speedY=0 ;
+      }
+   if(enemyPath[this.pathDes].y > this.y){
+      this.speedX=0 ;
+      this.speedY=64 ;
+      }
+   if(enemyPath[this.pathDes].y < this.y){
+      this.speedX=0 ;
+      this.speedY=-64 ;
+      }
+  }
+  else{
+     this.x=this.x+this.speedX/FPS;
+     this.y=this.y+this.speedY/FPS;
+  }
+ } 
+};
+ 
+}
 var enemy = {
  x:96,
  y:448,
