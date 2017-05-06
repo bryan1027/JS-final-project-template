@@ -56,7 +56,7 @@ function Enemy(){
  } 
 };
 
-var enemy = [];
+var enemies = [];
 
 var enemyPath=[
  {x:96,y:384},
