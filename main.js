@@ -23,11 +23,12 @@ var enemy = {
  pathDes:0,
  move: function(){
   if(isCollided(enemyPath[this.pathDes].x,enemyPath[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
-   console.log(enemyPath[this.pathDes].x);
-   console.log(enemyPath[this.pathDes].y);
+
    this.x = enemyPath[this.pathDes].x;
    this.y = enemyPath[this.pathDes].y;
    this.pathDes = this.pathDes + 1;
+   console.log(enemyPath[this.pathDes].x);
+   console.log(enemyPath[this.pathDes].y);
    
    if(enemyPath[this.pathDes].x > this.x){
       this.speedX=64;
