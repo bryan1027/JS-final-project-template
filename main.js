@@ -21,8 +21,8 @@ function Enemy(){
  this.y = 448;
  this.speedX = 0;
  this.speedY = -64;
- this.pathDes=0;
- this.move=function(){
+ this.pathDes = 0;
+ this.move = function(){
   if(isCollided(enemyPath[this.pathDes].x,enemyPath[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
 
    this.x = enemyPath[this.pathDes].x;
@@ -55,7 +55,7 @@ function Enemy(){
  } 
 };
 
-var enemy = Enemy();
+var enemy = new Enemy();
 
 var enemyPath=[
  {x:96,y:384},
