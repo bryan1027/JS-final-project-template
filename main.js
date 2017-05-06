@@ -13,6 +13,7 @@ var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
 var isBuilding = false ;
 var FPS = 60;
+var clock = 0;
 
 //Enemy Setting
 
@@ -55,7 +56,7 @@ function Enemy(){
  } 
 };
 
-var enemy = new Enemy();
+var enemy = [];
 
 var enemyPath=[
  {x:96,y:384},
@@ -101,11 +102,16 @@ $("#game-canvas").on("click",function(event){
 function draw(){
  enemy.move();
  ctx.drawImage(bgImg,0,0) ;
+  if(clock%80=0){
+  var newEnemy = new Enemy();
+  enemies.push(newEnemy);
+ }
  ctx.drawImage(enemyImg,enemy.x,enemy.y) ;
  ctx.drawImage(towerBtn,345,432,48,48);
  if(isBuilding==true){
     ctx.drawImage(towerImg,cursor.x,cursor.y)
 }
+ clock = clock+1;
  ctx.drawImage(towerImg,tower.x,tower.y)
 }
 
