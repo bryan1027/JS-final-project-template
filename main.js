@@ -22,7 +22,7 @@ var enemy = {
  speedY:-64,
  pathDes:0,
  move: function(){
-    console.log(enemyPath[this.pathDes]);
+   console.log(enemyPath[this.pathDes]);
   if(isCollided(enemyPath[this.pathDes].x,[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
    this.x = enemyPath[this.pathDes].x;
    this.y = enemyPath[this.pathDes].y;
@@ -94,7 +94,7 @@ $("#game-canvas").on("click",function(event){
 })
 
 function draw(){
- enemy.move();
+ //enemy.move();
  ctx.drawImage(bgImg,0,0) ;
  ctx.drawImage(enemyImg,enemy.x,enemy.y) ;
  ctx.drawImage(towerBtn,345,432,48,48);
