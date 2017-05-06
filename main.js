@@ -54,8 +54,7 @@ function Enemy(){
   }
  } 
 };
- 
-}
+
 var enemy = {
  x:96,
  y:448,
