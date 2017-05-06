@@ -53,17 +53,17 @@ var enemy = {
  } 
 };
 var enemyPath=[
- {x:96,y:380},
- {x:32,y:380},
- {x:32,y:28},
- {x:160,y:28},
- {x:160,y:412},
- {x:288,y:412},
- {x:288,y:28},
- {x:416,y:28},
- {x:416,y:412},
- {X:548,y:412},
- {x:548,y:92}
+ {x:96,y:384},
+ {x:32,y:384},
+ {x:32,y:32},
+ {x:160,y:32},
+ {x:160,y:416},
+ {x:288,y:416},
+ {x:288,y:32},
+ {x:416,y:32},
+ {x:416,y:416},
+ {X:548,y:416},
+ {x:548,y:96}
  ]
 
 //Cursor Setting
@@ -94,7 +94,7 @@ $("#game-canvas").on("click",function(event){
 })
 
 function draw(){
- //enemy.move();
+ enemy.move();
  ctx.drawImage(bgImg,0,0) ;
  ctx.drawImage(enemyImg,enemy.x,enemy.y) ;
  ctx.drawImage(towerBtn,345,432,48,48);
