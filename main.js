@@ -3,6 +3,7 @@ var bgImg = document.createElement("img");
 var enemyImg = document.createElement("img");
 var towerBtn = document.createElement("img");
 var towerImg = document.createElement("img");
+var HP = 100;
 
 bgImg.src="images/map3.png"
 enemyImg.src="images/rukia.gif"
@@ -14,7 +15,6 @@ var ctx = canvas.getContext("2d");
 var isBuilding = false ;
 var FPS = 60;
 var clock = 0;
-var HP = 100;
 ctx.fillStyle = "white"
 ctx.font = "24px Arial"
 
@@ -25,10 +25,16 @@ function Enemy(){
  this.y = 448;
  this.speedX = 0;
  this.speedY = -64;
- this.pathDes = 0;
+ this.pathDes = 10;
+ 
+ this.hp = 10;
+ 
  this.move = function(){
   if(isCollided(enemyPath[this.pathDes].x,enemyPath[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
-
+   if(this.pathDes===enemyPath.length-1){
+    this.hp = 0;
+    HP = HP - 10;
+   }
    this.x = enemyPath[this.pathDes].x;
    this.y = enemyPath[this.pathDes].y;
    this.pathDes = this.pathDes + 1;
@@ -110,8 +116,14 @@ function draw(){
   enemies.push(newEnemy);
  }
  for(var i = 0 ;i < enemies.length;i++){
+  
+  if(enemies[i].hp<1){
+   enemies.splice(i,1);
+  }
+  else{
   enemies[i].move();
   ctx.drawImage(enemyImg,enemies[i].x,enemies[i].y) ;
+  }
  }
  ctx.drawImage(towerBtn,345,432,48,48);
  if(isBuilding==true){
