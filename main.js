@@ -25,7 +25,7 @@ function Enemy(){
  this.y = 448;
  this.speedX = 0;
  this.speedY = -64;
- this.pathDes = 10;
+ this.pathDes = 0;
  
  this.hp = 10;
  
