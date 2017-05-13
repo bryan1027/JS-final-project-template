@@ -3,8 +3,9 @@ var bgImg = document.createElement("img");
 var enemyImg = document.createElement("img");
 var towerBtn = document.createElement("img");
 var towerImg = document.createElement("img");
-var HP = 100;
+var crosshairImage = document.createElement("img")
 
+crosshairImage = "images/crosshair.png"
 bgImg.src="images/map3.png"
 enemyImg.src="images/rukia.gif"
 towerBtn.src="images/tower-btn.png"
@@ -15,6 +16,7 @@ var ctx = canvas.getContext("2d");
 var isBuilding = false ;
 var FPS = 60;
 var clock = 0;
+var HP = 100;
 ctx.fillStyle = "white"
 ctx.font = "24px Arial"
 
@@ -85,10 +87,23 @@ var enemyPath=[
 var cursor = {
  x:0,
  y:0
-};
+}; 
 
 var tower = {
- 
+ range:96,
+ aimingEnemyId:null,
+ searchEnemy: function(){
+  for(var i=0;i<enemies.length;i++){
+   var distance = Math.sqrt(
+       Math.pow(this.x - enemies[i].x,2) + Math.pow(this.y - enemies[i].y,2)
+   )
+   if(distance < this.range){
+    this.aimingEnemyId = i;
+    return;
+   }
+  }
+  this.aimingEnemyId = null;
+ }
 };
 
 $("#game-canvas").on("mousemove",function(event){
@@ -129,7 +144,14 @@ function draw(){
  if(isBuilding==true){
     ctx.drawImage(towerImg,cursor.x,cursor.y)
 }
- clock = clock+1;
+ crx.drawImage(towerImg,tower.x,tower.y)
+ 
+ tower.searchEnemy();
+ if(tower.aimingEnemyId!=null){
+  var id = tower.aimingEnemyId;
+  ctx.draw(crosshairImage, enemies[id].x,enemies[id].y)
+ }
+ clock = clock+1;i
  ctx.drawImage(towerImg,tower.x,tower.y)
 }
 
