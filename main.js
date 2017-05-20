@@ -90,9 +90,9 @@ var cursor = {
  y:0
 }; 
 
-var tower = {
- range:96,
- aimingEnemyId:null,
+function tower () {
+ this.range = 96,
+ this.aimingEnemyId = null,
  searchEnemy: function(){
   
   this.readyToShootTime = this.readyToShootTime-1/FPS
@@ -178,8 +178,8 @@ function draw(){
  }
  
  ctx.fillText("HP:"+HP,20,20)
- ctx.fillText("Score:"+score,120,20)
- ctx.fillText("Money:"+Money,300,20)
+ ctx.fillText("Score:"+score,300,20)
+ ctx.fillText("Money:"+Money,120,20)
  
  clock = clock+1;i
  ctx.drawImage(towerImg,tower.x,tower.y)
