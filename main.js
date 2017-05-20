@@ -5,7 +5,7 @@ var towerBtn = document.createElement("img");
 var towerImg = document.createElement("img");
 var crosshairImage = document.createElement("img")
 
-crosshairImage = "images/crosshair.png"
+crosshairImage.src = "images/crosshair.png"
 bgImg.src="images/map3.png"
 enemyImg.src="images/rukia.gif"
 towerBtn.src="images/tower-btn.png"
@@ -40,8 +40,6 @@ function Enemy(){
    this.x = enemyPath[this.pathDes].x;
    this.y = enemyPath[this.pathDes].y;
    this.pathDes = this.pathDes + 1;
-   console.log(enemyPath[this.pathDes].x);
-   console.log(enemyPath[this.pathDes].y);
    
    if(enemyPath[this.pathDes].x > this.x){
       this.speedX=64;
@@ -144,7 +142,7 @@ function draw(){
  if(isBuilding==true){
     ctx.drawImage(towerImg,cursor.x,cursor.y)
 }
- crx.drawImage(towerImg,tower.x,tower.y)
+ ctx.drawImage(towerImg,tower.x,tower.y)
  
  tower.searchEnemy();
  if(tower.aimingEnemyId!=null){
