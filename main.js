@@ -17,6 +17,9 @@ var isBuilding = false ;
 var FPS = 60;
 var clock = 0;
 var HP = 100;
+
+var score = 0;
+var Money = 25;
 ctx.fillStyle = "white"
 ctx.font = "24px Arial"
 
@@ -145,7 +148,6 @@ $("#game-canvas").on("click",function(event){
 
 function draw(){
  ctx.drawImage(bgImg,0,0) ;
- ctx.fillText("HP:"+HP,20,20)
   if(clock%80==0){
   var newEnemy = new Enemy();
   enemies.push(newEnemy);
@@ -154,6 +156,9 @@ function draw(){
   
   if(enemies[i].hp<1){
    enemies.splice(i,1);
+   
+   Money = Money + 10
+   score = score + 25
   }
   else{
   enemies[i].move();
@@ -171,6 +176,11 @@ function draw(){
   var id = tower.aimingEnemyId;
   ctx.drawImage(crosshairImage, enemies[id].x,enemies[id].y)
  }
+ 
+ ctx.fillText("HP:"+HP,60,20)
+ ctx.fillText("Score:"+score,100,20)
+ ctx.fillText("Money:"+Money,140,20)
+ 
  clock = clock+1;i
  ctx.drawImage(towerImg,tower.x,tower.y)
 }
