@@ -177,9 +177,9 @@ function draw(){
   ctx.drawImage(crosshairImage, enemies[id].x,enemies[id].y)
  }
  
- ctx.fillText("HP:"+HP,60,20)
- ctx.fillText("Score:"+score,100,20)
- ctx.fillText("Money:"+Money,140,20)
+ ctx.fillText("HP:"+HP,20,20)
+ ctx.fillText("Score:"+score,120,20)
+ ctx.fillText("Money:"+Money,220,20)
  
  clock = clock+1;i
  ctx.drawImage(towerImg,tower.x,tower.y)
