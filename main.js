@@ -17,7 +17,6 @@ var isBuilding = false ;
 var FPS = 60;
 var clock = 0;
 var HP = 100;
-
 var score = 0;
 var Money = 25;
 ctx.fillStyle = "white"
@@ -170,7 +169,6 @@ function draw(){
     ctx.drawImage(towerImg,cursor.x,cursor.y)
 }
  ctx.drawImage(towerImg,tower.x,tower.y)
- 
  tower.searchEnemy();
  if(tower.aimingEnemyId!=null){
   var id = tower.aimingEnemyId;
@@ -182,7 +180,6 @@ function draw(){
  ctx.fillText("Money:"+Money,120,20)
  clock = clock+1;
  
- ctx.drawImage(towerImg,tower.x,tower.y)
 }
 
 setInterval(draw,1000/FPS);
