@@ -122,9 +122,9 @@ function tower () {
   ctx.stroke();
   enemies[id].hp = enemies[id].hp - this.damage
  },
- fireRate : 1,
- readyToShootTime : 1,
- damage : 5
+ fireRate = 1,
+ readyToShootTime = 1,
+ damage = 5
  
 };
 
