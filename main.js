@@ -173,7 +173,7 @@ function draw(){
  ctx.drawImage(towerBtn,345,432,48,48);
 
  if(isBuilding==true){
-    ctx.drawImage(towerImg,cursor.x,cursor.y)
+    ctx.drawImage(towerImg,cursor.x-cursor.x%32,cursor.y-cursor.y%32)
 }
  for(var i=0;i<towers.length;i++){
  ctx.drawImage(towerImg,towers[i].x,towers[i].y)
