@@ -92,7 +92,7 @@ var cursor = {
 function tower () {
  this.range = 96,
  this.aimingEnemyId = null,
- searchEnemy: function(){
+ searchEnemy = function(){
   
   this.readyToShootTime = this.readyToShootTime-1/FPS
   
