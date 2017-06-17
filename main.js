@@ -182,11 +182,10 @@ function draw(){
   var id = towers[i].aimingEnemyId;
   ctx.drawImage(crosshairImage, enemies[id].x,enemies[id].y)
  }
- 
- ctx.fillText("HP:"+HP,20,20)
+}
+  ctx.fillText("HP:"+HP,20,20)
  ctx.fillText("Score:"+score,300,20)
  ctx.fillText("Money:"+Money,120,20)
-}
  clock = clock+1;
 }
 
