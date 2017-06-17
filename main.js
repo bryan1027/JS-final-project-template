@@ -89,10 +89,12 @@ var cursor = {
  y:0
 }; 
 
-function tower () {
+function Tower (x,y) {
+ this.x=x
+ this.y=y
  this.range = 96,
  this.aimingEnemyId = null,
- searchEnemy = function(){
+ this.searchEnemy = function(){
   
   this.readyToShootTime = this.readyToShootTime-1/FPS
   
@@ -112,8 +114,8 @@ function tower () {
    }
   }
   this.aimingEnemyId = null;
- },
- shoot=function(id){
+ };
+ this.shoot=function(id){
   ctx.beginPath();
   ctx.moveTo(this.x,this.y);
   ctx.lineTo(enemies[id].x,enemies[id].y);
@@ -121,12 +123,14 @@ function tower () {
   ctx.lineWidth = 3;
   ctx.stroke();
   enemies[id].hp = enemies[id].hp - this.damage
- },
- fireRate = 1,
- readyToShootTime = 1,
- damage = 5
+ };
+ this.fireRate = 1,
+ this.readyToShootTime = 1,
+ this.damage = 5
  
 };
+
+var towers = [
 
 $("#game-canvas").on("mousemove",function(event){
  cursor.x=event.offsetX
@@ -136,10 +140,11 @@ $("#game-canvas").on("click",function(event){
  if(isCollided(cursor.x,cursor.y,345,432,48,48)){
     isBuilding=true;
     }
-    else if(isBuilding&&!isCollided(cursor.x,cursor.y,345,432,48,48)){
-     tower.x = cursor.x-cursor.x%32;
-     tower.y = cursor.y-cursor.y%32;
-    }
+    else if(isBuilding&&!isCollided(cursor.x,cursor.y,345,432,48,48) %%Money > 20){
+     Money = Money - 20;
+     var newTower = new Tower(cursor.x-cursor.x%32 , cursor.y-cursor.y%32);
+     towers.push(newTower);
+ 
     else{
     isBuilding=false;
     }
@@ -165,13 +170,15 @@ function draw(){
   }
  }
  ctx.drawImage(towerBtn,345,432,48,48);
+
  if(isBuilding==true){
     ctx.drawImage(towerImg,cursor.x,cursor.y)
 }
- ctx.drawImage(towerImg,tower.x,tower.y)
- tower.searchEnemy();
- if(tower.aimingEnemyId!=null){
-  var id = tower.aimingEnemyId;
+ for(var i=0;i<towers.length;i++){
+ ctx.drawImage(towerImg,tower[i].x,tower[i].y)
+ tower[i].searchEnemy();
+ if(tower[i].aimingEnemyId!=null){
+  var id = tower[i].aimingEnemyId;
   ctx.drawImage(crosshairImage, enemies[id].x,enemies[id].y)
  }
  
@@ -179,7 +186,8 @@ function draw(){
  ctx.fillText("Score:"+score,300,20)
  ctx.fillText("Money:"+Money,120,20)
  clock = clock+1;
- 
+}
+
 }
 
 setInterval(draw,1000/FPS);
