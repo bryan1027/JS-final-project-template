@@ -137,10 +137,10 @@ $("#game-canvas").on("mousemove",function(event){
  cursor.y=event.offsetY
 })
 $("#game-canvas").on("click",function(event){
- if(isCollided(cursor.x,cursor.y,345,432,48,48)){
+ if(isCollided(cursor.x,cursor.y,345,432,48,48)&&Money > 20){
     isBuilding=true;
     }
-    else if(isBuilding&&!isCollided(cursor.x,cursor.y,345,432,48,48) &&Money > 20){
+    else if(isBuilding&&!isCollided(cursor.x,cursor.y,345,432,48,48)){
      Money = Money - 20;
      var newTower = new Tower(cursor.x-cursor.x%32 , cursor.y-cursor.y%32);
      towers.push(newTower);
