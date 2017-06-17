@@ -136,7 +136,7 @@ $("#game-canvas").on("mousemove",function(event){
  cursor.x=event.offsetX
  cursor.y=event.offsetY
 })
-$("#game-canvas").on("click",function(event){
+$("#game-canvas").on("click",function(){
  if(isCollided(cursor.x,cursor.y,345,432,48,48)&&Money > 20){
     isBuilding=true;
     }
@@ -175,10 +175,10 @@ function draw(){
     ctx.drawImage(towerImg,cursor.x,cursor.y)
 }
  for(var i=0;i<towers.length;i++){
- ctx.drawImage(towerImg,tower[i].x,tower[i].y)
- tower[i].searchEnemy();
- if(tower[i].aimingEnemyId!=null){
-  var id = tower[i].aimingEnemyId;
+ ctx.drawImage(towerImg,towers[i].x,towers[i].y)
+ towers[i].searchEnemy();
+ if(towers[i].aimingEnemyId!=null){
+  var id = towers[i].aimingEnemyId;
   ctx.drawImage(crosshairImage, enemies[id].x,enemies[id].y)
  }
  
