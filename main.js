@@ -113,7 +113,7 @@ function tower () {
   }
   this.aimingEnemyId = null;
  },
- shoot:function(id){
+ shoot=function(id){
   ctx.beginPath();
   ctx.moveTo(this.x,this.y);
   ctx.lineTo(enemies[id].x,enemies[id].y);
