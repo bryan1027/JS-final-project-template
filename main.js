@@ -130,13 +130,13 @@ function Tower (x,y) {
  
 };
 
-var towers = [
+var towers = [];
 
 $("#game-canvas").on("mousemove",function(event){
  cursor.x=event.offsetX
  cursor.y=event.offsetY
 })
-$("#game-canvas").on("click",function(){
+$("#game-canvas").on("click",function(event){
  if(isCollided(cursor.x,cursor.y,345,432,48,48)&&Money > 20){
     isBuilding=true;
     }
