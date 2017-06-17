@@ -144,6 +144,7 @@ $("#game-canvas").on("click",function(event){
      Money = Money - 20;
      var newTower = new Tower(cursor.x-cursor.x%32 , cursor.y-cursor.y%32);
      towers.push(newTower);
+     isBuild = false;
  }
     else{
     isBuilding=false;
