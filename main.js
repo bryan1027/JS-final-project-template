@@ -185,9 +185,8 @@ function draw(){
  ctx.fillText("HP:"+HP,20,20)
  ctx.fillText("Score:"+score,300,20)
  ctx.fillText("Money:"+Money,120,20)
- clock = clock+1;
 }
-
+ clock = clock+1;
 }
 
 setInterval(draw,1000/FPS);
