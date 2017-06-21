@@ -168,7 +168,6 @@ function draw(){
   else{
   enemies[i].move();
   ctx.drawImage(enemyImg,enemies[i].x,enemies[i].y) ;
-   hp = hp + 0.5 ;
   }
  }
  ctx.drawImage(towerBtn,345,432,48,48);
